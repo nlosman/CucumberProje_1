@@ -11,19 +11,17 @@ public class GWD {
 
     public static WebDriver getDriver() {
 
-        // extend report türkçe bilg çalışmaması sebebiyle eklendi
         Locale.setDefault(new Locale("EN"));
         System.setProperty("user.language", "EN");
 
         if (driver==null) {
             driver = new ChromeDriver();
             driver.manage().window().maximize();
-            driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20)); // 20 sn mühlet: sayfayı yükleme mühlet
+            driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
         }
 
         return driver;
     }
-
 
     public static void quitDriver() {
 
