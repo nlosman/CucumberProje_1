@@ -15,7 +15,7 @@ public class Hooks {
 
     }
 
-    @After // Cucumber ın Annotation ı
+    @After
     public void after(Scenario senaryo)
     {
 
