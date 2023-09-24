@@ -17,11 +17,6 @@ import java.awt.event.KeyEvent;
 public class US_8_Selim {
 
     Selim sl= new Selim();
-    @Given("Navigate to Cleverppc")
-    public void navigateToCleverppc() {
-
-        GWD.getDriver().get("https://cleverppc.com/prestashop4/");
-    }
 
     @When("Enter ContactUs and click button")
     public void enterContactUsAndClickButton() {
