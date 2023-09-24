@@ -85,10 +85,11 @@ public class US_7_Osman {
     }
 
     @And("Save the reference number")
-    public void saveTheReferenceNumber() {
+    public String saveTheReferenceNumber() {
         String referenceText=os.referenceNumber.getText();
         String reference = referenceText.substring(47,56);
         System.out.println(reference);
+        return reference;
     }
 
 

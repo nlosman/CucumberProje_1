@@ -14,7 +14,7 @@ import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 
-public class US_8_Selim {
+public class US_8_Selim{
 
     Selim sl= new Selim();
 
@@ -23,22 +23,27 @@ public class US_8_Selim {
 
         sl.myClick(sl.ContactUsLoginButton);
 
+
     }
 
     @Then("Send a message")
     public void sendAMessage() throws AWTException {
-        sl.myClick(sl.SubjectHeading);
-        Select sec= new Select(sl.Customer);
-        sec.selectByIndex(1);
+
+        Select secCustomer= new Select(sl.Customer);
+        secCustomer.selectByIndex(1);
 
         sl.mySendKeys(sl.emailAdress, "aaaa@gmail.com");
-        sl.mySendKeys(sl.OrderReference,"123456");
+        sl.mySendKeys(sl.OrderReference, "asdasdsad");
+
+
         sl.myClick(sl.chooseFile);
+
+
 
         try {
             Robot robot = new Robot();
             // Dosya yolunu bir dize olarak tanımla
-            StringSelection stringSelection = new StringSelection("C:\\Users\\Selim\\Desktop\\tekir.PNG"); // Dosya yolunu gir
+            StringSelection stringSelection = new StringSelection("C:\\Users\\HP\\Desktop\\tekir.png"); // Dosya yolunu gir
 
             // Kopyala işlemi
             Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
@@ -63,6 +68,7 @@ public class US_8_Selim {
     public void userCanSuccessfullyReceiveTheMessage() {
 
     Assert.assertTrue(sl.actualText.getText().contains("successfully"));
+
 
     }
 }
