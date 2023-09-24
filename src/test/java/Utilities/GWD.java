@@ -31,7 +31,7 @@ public class GWD {
            throw new RuntimeException(e);
       }
 
-        if (driver!=null) { //driver var ise
+        if (driver!=null) {
            driver.quit();
            driver=null;
         }
