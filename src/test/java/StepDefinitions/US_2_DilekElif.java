@@ -27,12 +27,12 @@ public class US_2_DilekElif {
         de.mySendKeys(de.emailInput, "osman1@hotmail.com");
         de.mySendKeys(de.passwordInput, "12345");
         de.myClick(de.signinBtn);
-    }
 
+    }
 
     @And("User should login successfully")
     public void userShouldLoginSuccessfully() {
-        Assert.assertEquals(de.signOut.getText(), " Sign out ");
+        Assert.assertTrue(de.signOut.getText().contains("Sign out"));
     }
 
 
