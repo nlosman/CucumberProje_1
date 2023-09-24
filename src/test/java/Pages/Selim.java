@@ -23,7 +23,7 @@ public class Selim extends Parent{
     @FindBy(id="email")
     public WebElement emailAdress;
 
-    @FindBy(id="id_order")
+    @FindBy(name="id_order")
     public WebElement OrderReference;
 
     @FindBy(id="uniform-fileUpload")
