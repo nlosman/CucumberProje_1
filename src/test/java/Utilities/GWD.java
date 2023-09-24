@@ -25,11 +25,11 @@ public class GWD {
 
     public static void quitDriver() {
 
-//        try {
-//            Thread.sleep(5000);
-//        } catch (InterruptedException e) {
-//            throw new RuntimeException(e);
-//        }
+       try {
+           Thread.sleep(10000);
+      } catch (InterruptedException e) {
+           throw new RuntimeException(e);
+      }
 
         if (driver!=null) { //driver var ise
            driver.quit();
