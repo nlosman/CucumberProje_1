@@ -1,9 +1,10 @@
 package StepDefinitions;
 
-import Pages.DilekElif;
+
 import Pages.Osman;
 import Utilities.GWD;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.interactions.Action;
@@ -12,25 +13,23 @@ import org.testng.Assert;
 
 public class US_7_Osman {
     Osman os = new Osman();
-    DilekElif de=new DilekElif();
+
     @And("Click buttons of payment")
     public void clickButtonsOfPayment() {
+        Actions aksiyonlar=new Actions(GWD.getDriver());
+        Action aksiyon= aksiyonlar.moveToElement(os.cart).build();
+        aksiyon.perform();
+        os.myClick(os.checkout);
+        os.myClick(os.checkout);
+        os.myClick(os.checkout);
+        os.myClick(os.terms);
+        os.myClick(os.checkout);
 
-    os.myClick(os.dress);
-//        Actions aksiyonlar=new Actions(GWD.getDriver());
-//        Action aksiyon= aksiyonlar.moveToElement(os.cart).build();
-//        aksiyon.perform();
-//        os.myClick(os.checkout);
-//        os.myClick(os.checkout);
-//        os.myClick(os.checkout);
-//        os.myClick(os.terms);
-//        os.myClick(os.checkout);
     }
 
     @When("Click PayPal button")
     public void clickPayPalButton() {
         os.myClick(os.paypalBtn);
-
     }
 
     @Then("Negative message should be displayed")
@@ -47,11 +46,12 @@ public class US_7_Osman {
     public void clickCreditcardButton() {
         os.myClick(os.creditCartBtn);
     }
+
     @Then("Invalid message should be displayed")
     public void invalidMessageShouldBeDisplayed() {
         Assert.assertEquals(os.invalidMessage, "Invalid request (1).");
-
     }
+
     @When("Click pay by bank wire button")
     public void clickPayByBankWireButton() {
         os.myClick(os.bankWire);
@@ -67,12 +67,13 @@ public class US_7_Osman {
         String totalPrice=os.totalPrice.getText();
 
         Double priceDouble = Double.parseDouble(price.replaceAll("[^0-9,.]",""));
-        Double shippinPriceDouble = Double.parseDouble(price.replaceAll("[^0-9,.]",""));
-        Double totalPriceDouble = Double.parseDouble(price.replaceAll("[^0-9,.]",""));
+        Double shippinPriceDouble = Double.parseDouble(shippingPrice.replaceAll("[^0-9,.]",""));
+        Double totalPriceDouble = Double.parseDouble(totalPrice.replaceAll("[^0-9,.]",""));
 
         Assert.assertTrue(totalPriceDouble==(priceDouble+shippinPriceDouble));
 
     }
+
     @When("Click confirm order button")
     public void clickConfirmOrderButton() {
         os.myClick(os.checkout);
