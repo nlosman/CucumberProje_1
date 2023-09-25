@@ -20,26 +20,17 @@ public class US_7_Osman {
 
     @And("Click buttons of payment")
     public void clickButtonsOfPayment() {
-        Actions aksiyonlar=new Actions(GWD.getDriver());
-        Action aksiyon= aksiyonlar.moveToElement(os.dress).build();
-        aksiyon.perform();
-        os.myClick(os.causelDress);
-        Action aksiyon2= aksiyonlar.moveToElement(os.printDress).build();
-        aksiyon2.perform();
 
-        os.myClick(os.addToCart);
         os.myClick(os.conToShop);
-
-
+        Actions aksiyonlar=new Actions(GWD.getDriver());
 
         Action aksiyon3= aksiyonlar.moveToElement(os.cart).build();
         aksiyon3.perform();
         os.myClick(os.checkout);
-        os.myClick(os.checkout);
-        os.myClick(os.checkout);
+        os.myClick(os.proceedChekout);
+        os.myClick(os.proceedChekout2);
         os.myClick(os.terms);
-        os.myClick(os.checkout);
-
+        os.myClick(os.proceedChekout3);
     }
 
     @When("Click PayPal button")
@@ -64,13 +55,14 @@ public class US_7_Osman {
 
     @Then("Invalid message should be displayed")
     public void invalidMessageShouldBeDisplayed() {
-        Assert.assertEquals(os.invalidMessage, "Invalid request (1).");
+        Assert.assertTrue(os.invalidMessage.getText().contains("Invalid"));
     }
 
     @When("Click pay by bank wire button")
     public void clickPayByBankWireButton() {
         os.myClick(os.bankWire);
     }
+
 
     @Then("Total amount should be confirmed")
     public void totalAmountShouldBeConfirmed() {
@@ -88,11 +80,12 @@ public class US_7_Osman {
         Assert.assertTrue(totalPriceDouble==(priceDouble+shippinPriceDouble));
 
     }
-
     @When("Click confirm order button")
     public void clickConfirmOrderButton() {
-        os.myClick(os.checkout);
+        os.myClick(os.confirmBtn);
     }
+
+
 
     @Then("Payment success message should be displayed")
     public void paymentSuccessMessageShouldBeDisplayed() {
@@ -102,10 +95,16 @@ public class US_7_Osman {
     @And("Save the reference number")
     public String saveTheReferenceNumber() {
         String referenceText=os.referenceNumber.getText();
-        String reference = referenceText.substring(47,56);
+        int index1= referenceText.indexOf("reference ");
+        String refBaslama = referenceText.substring(index1+10);
+        int index2 = refBaslama.indexOf(" ");
+        String reference = refBaslama.substring(0, index2);
         System.out.println(reference);
         return reference;
+
     }
+
+
 
 
 }
