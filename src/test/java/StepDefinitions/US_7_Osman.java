@@ -9,7 +9,11 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+
+import java.time.Duration;
 
 public class US_7_Osman {
     Osman os = new Osman();
@@ -17,8 +21,19 @@ public class US_7_Osman {
     @And("Click buttons of payment")
     public void clickButtonsOfPayment() {
         Actions aksiyonlar=new Actions(GWD.getDriver());
-        Action aksiyon= aksiyonlar.moveToElement(os.cart).build();
+        Action aksiyon= aksiyonlar.moveToElement(os.dress).build();
         aksiyon.perform();
+        os.myClick(os.causelDress);
+        Action aksiyon2= aksiyonlar.moveToElement(os.printDress).build();
+        aksiyon2.perform();
+
+        os.myClick(os.addToCart);
+        os.myClick(os.conToShop);
+
+
+
+        Action aksiyon3= aksiyonlar.moveToElement(os.cart).build();
+        aksiyon3.perform();
         os.myClick(os.checkout);
         os.myClick(os.checkout);
         os.myClick(os.checkout);
