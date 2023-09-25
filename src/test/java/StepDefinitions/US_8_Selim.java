@@ -14,7 +14,7 @@ import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 
-public class US_8_Selim{
+public class US_8_Selim extends US_7_Osman{
 
     Selim sl= new Selim();
 
@@ -33,7 +33,7 @@ public class US_8_Selim{
         secCustomer.selectByIndex(1);
 
         sl.mySendKeys(sl.emailAdress, "aaaa@gmail.com");
-        sl.mySendKeys(sl.OrderReference, "asdasdsad");
+        sl.mySendKeys(sl.OrderReference, saveTheReferenceNumber());
 
 
         sl.myClick(sl.chooseFile);
