@@ -53,4 +53,24 @@ public class Osman extends Parent {
     @FindBy (xpath = "(//div[@class='box'])//br[5]")
     public WebElement referenceNumber;
 
+    @FindBy(xpath = "(//*[@class='sf-with-ul'])[4]")
+    public WebElement dress;
+
+    @FindBy(xpath = "(//*[@title='Casual Dresses'])[2]")
+    public WebElement causelDress;
+
+    @FindBy(xpath = "//*[@class='product-image-container']")
+    public WebElement printDress;
+
+    @FindBy(xpath = "//span[text()='Add to cart']")
+    public WebElement addToCart;
+
+    @FindBy (xpath = "//a[@title='Close']")
+    public WebElement close;
+
+    @FindBy (xpath = "//i[@class='icon-chevron-left left']")
+    public WebElement conToShop;
+
+
+
 }
