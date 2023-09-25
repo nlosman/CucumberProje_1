@@ -23,4 +23,5 @@ public class Fatmanur extends Parent{//pages classi
 
   @FindBy (xpath = "(//span[@class='title'])[1]")
   public WebElement successMsg;
+
 }

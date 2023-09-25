@@ -37,3 +37,4 @@ public class US_4_fatmanur {
         prn.verifyContainsText(ftnr.successMsg, "successfully");
     }
 }
+
