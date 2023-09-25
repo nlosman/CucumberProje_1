@@ -31,6 +31,7 @@ public class US_4_fatmanur {
     public void clickAddToCartButton() {
         prn.wait.until(ExpectedConditions.urlToBe("https://cleverppc.com/prestashop4/index.php?id_product=6&controller=product&id_lang=1"));
         ftnr.myClick(ftnr.addBtn);
+
     }
 
     @And("Success message should be displayed")
