@@ -3,10 +3,13 @@ package StepDefinitions;
 
 import Pages.Osman;
 import Utilities.GWD;
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import jdk.nashorn.internal.objects.Global;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -14,31 +17,29 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.time.Duration;
+import java.util.List;
 
 public class US_7_Osman {
     Osman os = new Osman();
 
-    @And("Click buttons of payment")
-    public void clickButtonsOfPayment() {
-        Actions aksiyonlar=new Actions(GWD.getDriver());
-        Action aksiyon= aksiyonlar.moveToElement(os.dress).build();
-        aksiyon.perform();
-        os.myClick(os.causelDress);
-        Action aksiyon2= aksiyonlar.moveToElement(os.printDress).build();
-        aksiyon2.perform();
 
-        os.myClick(os.addToCart);
+
+    @Then("Go to cart")
+    public void goToCart() {
         os.myClick(os.conToShop);
-
-
+        Actions aksiyonlar=new Actions(GWD.getDriver());
 
         Action aksiyon3= aksiyonlar.moveToElement(os.cart).build();
         aksiyon3.perform();
-        os.myClick(os.checkout);
-        os.myClick(os.checkout);
-        os.myClick(os.checkout);
-        os.myClick(os.terms);
-        os.myClick(os.checkout);
+    }
+
+    @And("Click buttons of payment")
+    public void clickButtonsOfPayment(DataTable payButtons) {
+        List<String> strpayButtons = payButtons.asList(String.class);
+        for(int i=0; i<strpayButtons.size(); i++){
+            WebElement payWebElement = os.getWebElement(strpayButtons.get(i));
+            os.myClick(payWebElement);
+        }
 
     }
 
@@ -64,13 +65,14 @@ public class US_7_Osman {
 
     @Then("Invalid message should be displayed")
     public void invalidMessageShouldBeDisplayed() {
-        Assert.assertEquals(os.invalidMessage, "Invalid request (1).");
+        Assert.assertTrue(os.invalidMessage.getText().contains("Invalid"));
     }
 
     @When("Click pay by bank wire button")
     public void clickPayByBankWireButton() {
         os.myClick(os.bankWire);
     }
+
 
     @Then("Total amount should be confirmed")
     public void totalAmountShouldBeConfirmed() {
@@ -88,11 +90,12 @@ public class US_7_Osman {
         Assert.assertTrue(totalPriceDouble==(priceDouble+shippinPriceDouble));
 
     }
-
     @When("Click confirm order button")
     public void clickConfirmOrderButton() {
-        os.myClick(os.checkout);
+        os.myClick(os.confirmBtn);
     }
+
+
 
     @Then("Payment success message should be displayed")
     public void paymentSuccessMessageShouldBeDisplayed() {
@@ -102,10 +105,16 @@ public class US_7_Osman {
     @And("Save the reference number")
     public String saveTheReferenceNumber() {
         String referenceText=os.referenceNumber.getText();
-        String reference = referenceText.substring(47,56);
+        int index1= referenceText.indexOf("reference ");
+        String refBaslama = referenceText.substring(index1+10);
+        int index2 = refBaslama.indexOf(" ");
+        String reference = refBaslama.substring(0, index2);
         System.out.println(reference);
         return reference;
-    }
+        }
+
+
+
 
 
 }

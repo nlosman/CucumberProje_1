@@ -17,11 +17,23 @@ public class Osman extends Parent {
     @FindBy(css = "[class='icon-chevron-right right']")
     public WebElement checkout;
 
+    @FindBy (xpath = "(//a[@title='Proceed to checkout'])[2]")
+    public WebElement proceedChekout;
+
+    @FindBy (xpath = "//button[@name='processAddress']")
+    public WebElement proceedChekout2;
+
+    @FindBy (xpath = "//button[@name='processCarrier']")
+    public WebElement proceedChekout3;
+
     @FindBy(id="uniform-cgv")
     public WebElement terms;
 
     @FindBy(id="paypal-standard-btn")
     public WebElement paypalBtn;
+
+    @FindBy(xpath = "//span[text()='I confirm my order']")
+    public WebElement confirmBtn;
 
     @FindBy (className = "message")
     public WebElement negativeMessage;
@@ -29,7 +41,7 @@ public class Osman extends Parent {
     @FindBy (id="ccBillForm")
     public WebElement creditCartBtn;
 
-    @FindBy(xpath = "//body")
+    @FindBy(xpath = "//*[contains (text(), 'Invalid')]")
     public WebElement invalidMessage;
 
     @FindBy (className = "bankwire")
@@ -50,26 +62,24 @@ public class Osman extends Parent {
     public WebElement successMessage;
 
 
-    @FindBy (xpath = "(//div[@class='box'])//br[5]")
+    @FindBy (xpath = "(//div[@class='box'])")
     public WebElement referenceNumber;
 
-    @FindBy(xpath = "(//*[@class='sf-with-ul'])[4]")
-    public WebElement dress;
 
-    @FindBy(xpath = "(//*[@title='Casual Dresses'])[2]")
-    public WebElement causelDress;
-
-    @FindBy(xpath = "//*[@class='product-image-container']")
-    public WebElement printDress;
-
-    @FindBy(xpath = "//span[text()='Add to cart']")
-    public WebElement addToCart;
-
-    @FindBy (xpath = "//a[@title='Close']")
-    public WebElement close;
-
-    @FindBy (xpath = "//i[@class='icon-chevron-left left']")
+    @FindBy (xpath = "//*[@title= 'Continue shopping']")
     public WebElement conToShop;
+
+    public WebElement getWebElement(String strElement){
+        switch (strElement){
+            case "checkout": return this.checkout;
+            case "proceedChekout": return this.proceedChekout;
+            case "proceedChekout2": return this.proceedChekout2;
+            case "terms": return this.terms;
+            case "proceedChekout3": return this.proceedChekout3;
+
+        }
+        return null;}
+
 
 
 
