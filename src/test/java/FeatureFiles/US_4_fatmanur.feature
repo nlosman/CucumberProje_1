@@ -1,6 +1,6 @@
 Feature: Add To Cart Functionality
 
-
+  @Cart @Smoke @Regression
 Scenario: Add To Cart
 
   Given Navigate to Cleverppc

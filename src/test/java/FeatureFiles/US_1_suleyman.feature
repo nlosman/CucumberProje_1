@@ -1,6 +1,6 @@
 Feature: Register functionality
 
-
+  @Accounts @Smoke @Regression
   Scenario: Create an account
 
     Given Navigate to Cleverppc

@@ -1,5 +1,6 @@
 Feature: Contact functionality
 
+  @Contact @Support @Regression
   Scenario: Send email to the website
 
     Given Navigate to Cleverppc
