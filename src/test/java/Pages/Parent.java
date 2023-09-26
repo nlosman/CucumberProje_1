@@ -47,4 +47,8 @@ public class Parent {
         js.executeScript("arguments[0].click();", element);
     }
 
+    public static int randomGenerator(int sinir){
+        return (int)(Math.random()*sinir);
+    }
+
 }
