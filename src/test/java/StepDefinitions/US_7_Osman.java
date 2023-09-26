@@ -3,10 +3,13 @@ package StepDefinitions;
 
 import Pages.Osman;
 import Utilities.GWD;
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import jdk.nashorn.internal.objects.Global;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -14,23 +17,30 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.time.Duration;
+import java.util.List;
 
 public class US_7_Osman {
     Osman os = new Osman();
 
-    @And("Click buttons of payment")
-    public void clickButtonsOfPayment() {
 
+
+    @Then("Go to cart")
+    public void goToCart() {
         os.myClick(os.conToShop);
         Actions aksiyonlar=new Actions(GWD.getDriver());
 
         Action aksiyon3= aksiyonlar.moveToElement(os.cart).build();
         aksiyon3.perform();
-        os.myClick(os.checkout);
-        os.myClick(os.proceedChekout);
-        os.myClick(os.proceedChekout2);
-        os.myClick(os.terms);
-        os.myClick(os.proceedChekout3);
+    }
+
+    @And("Click buttons of payment")
+    public void clickButtonsOfPayment(DataTable payButtons) {
+        List<String> strpayButtons = payButtons.asList(String.class);
+        for(int i=0; i<strpayButtons.size(); i++){
+            WebElement payWebElement = os.getWebElement(strpayButtons.get(i));
+            os.myClick(payWebElement);
+        }
+
     }
 
     @When("Click PayPal button")
@@ -101,8 +111,8 @@ public class US_7_Osman {
         String reference = refBaslama.substring(0, index2);
         System.out.println(reference);
         return reference;
+        }
 
-    }
 
 
 
