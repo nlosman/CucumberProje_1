@@ -69,6 +69,18 @@ public class Osman extends Parent {
     @FindBy (xpath = "//*[@title= 'Continue shopping']")
     public WebElement conToShop;
 
+    public WebElement getWebElement(String strElement){
+        switch (strElement){
+            case "checkout": return this.checkout;
+            case "proceedChekout": return this.proceedChekout;
+            case "proceedChekout2": return this.proceedChekout2;
+            case "terms": return this.terms;
+            case "proceedChekout3": return this.proceedChekout3;
+
+        }
+        return null;}
+
+
 
 
 }
