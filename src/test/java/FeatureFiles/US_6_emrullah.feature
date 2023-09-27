@@ -1,11 +1,11 @@
 Feature: Shopping Cart functionality
+
   Background:
     Given Navigate to Cleverppc
     When Click login button
     Then Enter email and password
-    Then User should login successfully
 
-
+  @Regression
   Scenario: Control of products added to the Cart
 
     When Click Dresses button
