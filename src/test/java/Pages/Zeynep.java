@@ -33,6 +33,9 @@ public class Zeynep extends Parent{
     @FindBy(id="phone_mobile")
     public WebElement phoneNumberInput;
 
+    @FindBy(id="alias")
+    public WebElement reference;
+
     @FindBy(id="submitAddress")
     public WebElement submitButton;
 

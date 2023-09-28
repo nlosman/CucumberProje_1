@@ -29,14 +29,13 @@ public class US_03_Zeynepp {
 
         ze.mySendKeys(ze.addressInput,"paul hoffman street");
         ze.mySendKeys(ze.cityInput, "Phoenix");
-        ze.mySendKeys(ze.stateSelect, "Arizona");
         Select newState=new Select(ze.stateSelect);
         newState.selectByIndex(2);
         ze.mySendKeys(ze.postCodeInput, "86012");
-        ze.mySendKeys(ze.countrySelect, "United States");
         Select country =new Select(ze.countrySelect);
         country.selectByValue("21");
-        ze.mySendKeys(ze.phoneNumberInput, "0156345");
+        ze.mySendKeys(ze.phoneNumberInput, "01563454563");
+        ze.mySendKeys(ze.reference, "my home address");
         ze.myClick(ze.submitButton);
 
 
