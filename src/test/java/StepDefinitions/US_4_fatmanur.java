@@ -33,7 +33,6 @@ public class US_4_fatmanur {
         ftnr.myClick(ftnr.addBtn);
 
     }
-
     @And("Success message should be displayed")
     public void successMessageShouldBeDisplayed() {
         prn.verifyContainsText(ftnr.successMsg, "successfully");

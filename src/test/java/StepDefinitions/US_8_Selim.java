@@ -33,7 +33,7 @@ public class US_8_Selim{
         secCustomer.selectByIndex(1);
 
         sl.mySendKeys(sl.emailAdress, "aaaa@gmail.com");
-        sl.mySendKeys(sl.OrderReference, "asasas");
+        sl.mySendKeys(sl.OrderReference, "WYDSLSAS");
 
 
         sl.myClick(sl.chooseFile);

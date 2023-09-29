@@ -1,5 +1,5 @@
 Feature: Control Functionality
-
+  @Product @Regression
   Scenario: Control of the number of products listed
 
     Given Navigate to Cleverppc
