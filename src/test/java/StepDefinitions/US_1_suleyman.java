@@ -14,7 +14,7 @@ public class US_1_suleyman {
     Suleyman su = new Suleyman();
     @When("Enter email")
     public void enterEmail() {
-        su.mySendKeys(su.emailInput, "suleymanaslan11@hotmail.com");
+        su.mySendKeys(su.emailInput, "suleymanaslan111@hotmail.com");
 
     }
     @Then("Click create and account button")

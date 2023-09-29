@@ -24,7 +24,7 @@ public class US_2_DilekElif {
     @Then("Enter email and password")
     public void enterEmailAndPassword() {
 
-        de.mySendKeys(de.emailInput, "suleymanaslan11@hotmail.com");
+        de.mySendKeys(de.emailInput, "suleymanaslan111@hotmail.com");
         de.mySendKeys(de.passwordInput, "12345");
         de.myClick(de.signinBtn);
 
